@@ -5,13 +5,16 @@ import Card from "./Card";
 
 function HookProps(){
  const[count, setcount]=useState(0);
+ const[data, setdata]=useState(0);
+ const[display, setdisplay]=useState(true); 
 
 
     return( 
         <div> 
            
-           <HookPropsCounter count={count} /> 
+           <HookPropsCounter count={count} data={data} />  
            <button onClick={()=>setcount(count+1)}>Counter </button>
+           <button onClick={()=>setdata(data+1)}>data {data}</button>
            
 
         </div>  
