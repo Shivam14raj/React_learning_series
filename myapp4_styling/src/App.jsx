@@ -30,7 +30,7 @@ const[cardStyle, setCardstyle] = useState(
 
   
   return (  
-    <>
+    <> 
     <h1 style={{color:"Red", backgroundColor:"yellow", display:"inline-block"}}>Learning about styling in REACT</h1>
      <div>
       <button onClick={()=>updateTheme('gray', 'yellow')}>Gray theme</button>
