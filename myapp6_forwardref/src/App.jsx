@@ -4,6 +4,8 @@ import UserRef from './UserRef';
 // import viteLogo from '/vite.svg'
 // import './App.css'
 import {useFormStatus} from 'react-dom'; // from is must for  "useformstatus"
+import AddUser from './AddUser';
+import DisplayUser from './DisplayUser';
 
 function App() {
   const inputRef= useRef(null); 
@@ -55,6 +57,18 @@ function App() {
    const last= users[users.length-1] || "No user yet"; 
    const uniqueUser= [...new Set(users)].length // here ... is very imp, Set ko wapas array mein convert kr dia
    
+   const[name, setName]= useState(""); // for lifting state up (AddUser.jsx and DisplayUser.jsx)
+
+
+   const[data, setdata]=useState({ // for updatin obj in react
+      name:"Rahul",
+       State:"Bihar",
+       Proffesion:"Sotf. developer"
+   })   
+
+   const HandleData=(val)=>{ 
+      setdata({...data, Proffesion: val})
+   }
 
   return (  
     <>
@@ -96,8 +110,22 @@ function App() {
             return <h4 key={index} >{item} </h4>
         })
       }
+      
+      <hr />
+      <h1>Lifting state up </h1>
+       <p>Sharing data between one componeent to another</p>
+       <AddUser name={name} setName= {setName} />
+       <DisplayUser name={name} />
+       
+       <hr />
+      
+       <h2>Updating object in state</h2>
+       
+       <input type="text" placeholder='Update name' 
+       onChange={(e)=>HandleData(e.target.value)} />
+       <h2>{data.Proffesion} </h2> 
 
-
+        
 
       
 
