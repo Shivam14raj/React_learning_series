@@ -60,10 +60,10 @@ function App() {
    const[name, setName]= useState(""); // for lifting state up (AddUser.jsx and DisplayUser.jsx)
 
 
-   const[data, setdata]=useState({ // for updatin obj in react
+   const[data, setdata]=useState({ // for updating obj in react
       name:"Rahul",
        State:"Bihar",
-       Proffesion:"Sotf. developer"
+       Proffesion:"Sotf. developer"     
    })   
 
    const HandleData=(val)=>{ 
