@@ -39,6 +39,7 @@ function App() {
     'Rahul', 'Vivek', 'Rohan', 'Sohan'
   ])
    
+  // normal array
   const Handlearray=(val)=>{
       console.log(name);
       name[name.length-1]=val; 
@@ -51,9 +52,20 @@ function App() {
       setName(temp)
       
       */
+  } 
 
-      
-  }
+  // array in form of objects 
+   const[dataDetails, setDataDetails]= useState([
+    {name:"rahul", age:"23"},
+    {name:"Vivek", age: "25"},
+    {name: "Abhi", age:"22"}
+   ])
+
+   const handleAge=(val)=>{
+        dataDetails[dataDetails.length-1].age=val;
+        setDataDetails([...dataDetails]) 
+   }
+
    
   return (   
     <>
@@ -79,7 +91,16 @@ function App() {
         name.map((item, index)=>(
            <h2 key={index}>{item}</h2> 
         ))
-     }
+     } 
+
+     <hr />
+     <input type="text" placeholder='Enter last user age' 
+      onChange={(event)=>handleAge(event.target.value)} />
+     { 
+       dataDetails.map((item, index)=>{
+         return <h3 key={index} >{item.name}, {item.age} </h3>
+       })
+     }  
       
 
       
