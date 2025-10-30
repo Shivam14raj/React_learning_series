@@ -1,5 +1,6 @@
 import { useActionState } from 'react'
 import { useState } from 'react'
+import { useId } from 'react';
 function App() {
 
 const handleSubmit=async(prevdata, formdata)=>{
@@ -19,12 +20,42 @@ const handleSubmit=async(prevdata, formdata)=>{
    }   
 
 
-}
+}  
 
 // we need three parameters
 const[data, action, pending]= useActionState(handleSubmit, undefined)
 
-  return (
+ 
+// Use id Hook tuotrial below  
+  function UseFormId(){
+      const name=useId(); 
+      const password= useId(); 
+      const terms=useId(); 
+
+      // we can use single user too
+      /*
+      const user=useId();
+      htmlfor={user+"name"}
+      htmlfor={user+"password"}
+      */
+
+      return(
+           <div>
+          <form action="">
+            <label htmlFor={name} >Enter your name</label>
+            <input type="text" placeholder='Enter name' id={name} />
+            <br />
+            <br />
+            <label htmlFor={password}>Enter your password</label>
+            <input type="text" placeholder='Enter password' id={password} />
+             <label htmlFor={terms}>Terms & conditions</label>
+            <input type="checkbox" placeholder='Enter skills' id= {terms} />
+          </form>
+       </div> 
+      )
+  }
+
+  return (     
     <>
       <h1>Use form state hook </h1> 
        <p>used in form handling & need 3 parameters: "data", "action", "pending" </p>
@@ -48,6 +79,13 @@ const[data, action, pending]= useActionState(handleSubmit, undefined)
 
        <h3> Name: {data?.name} </h3>
        <h3> Password: {data?.password} </h3> 
+
+       <hr />
+       <h1>UseId Hook tuotrial below </h1>
+        <UseFormId /> 
+        <hr /> 
+        <UseFormId />  
+
        
     </>
   )
